@@ -19,19 +19,14 @@ export default class BookShelfChanger extends Component {
     const newValue = event.target.value.toString();
   
     if (newValue === this.props.book.shelf) {return;}
-    if (newValue === 'move') {
-      this.props.updateBook(this.props.book, this.state.value);
-    } else {
       this.setState({value: newValue});
-    }
+      this.props.updateBook(this.props.book, newValue);
   }
   render() {
     return (
       <div className="book-shelf-changer">
       <select value={this.state.value} onChange={this.handleChange}>
-        <option value="move" >
-                Move to...
-              </option>
+        <option value="move" disabled>Move to...</option>
               {this.props.shelves.map((shelf, index) => {
                 return <option key={shelf.id} value={shelf.id}>{shelf.title}</option>
               })}
