@@ -1,10 +1,10 @@
 import React from "react";
 import BookShelfChanger from './BookShelfChanger';
+import { PropTypes } from 'prop-types';
 
 export default function Book(props) {
   const {book, shelf, shelves, updateBook} = props
   const imageUrl = book.imageLinks ? book.imageLinks.smallThumbnail : '';
-  console.log('image is ', imageUrl)
   return (
     <li>
       <div className="book">
@@ -26,4 +26,11 @@ export default function Book(props) {
       </div>
     </li>
   );
+}
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  shelf: PropTypes.string,
+  shelves: PropTypes.array.isRequired,
+  updateBook: PropTypes.func.isRequired
 }

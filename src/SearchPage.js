@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
+import PropTypes from 'prop-types'
 
 export default class SearchPage extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ export default class SearchPage extends Component {
     })
     BooksAPI.search(val)
     .then(response => {
-      console.log('search response: ', response);
       this.setState({
         searchResponse: response
       })
@@ -59,4 +59,11 @@ export default class SearchPage extends Component {
       </div>
     )
   }
+}
+
+SearchPage.propTypes = {
+  bookObj : PropTypes.object.isRequired,
+  books : PropTypes.array.isRequired,
+  shelves : PropTypes.array.isRequired,
+  updateBook: PropTypes.func.isRequired
 }
