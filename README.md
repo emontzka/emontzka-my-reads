@@ -10,6 +10,9 @@ cd emontzka-my-reads
 npm install
 npm start
 ```
+# Demo App
+
+[My Reads App](https://my-reads-app.netlify.com)
 
 ### Functionality
 
